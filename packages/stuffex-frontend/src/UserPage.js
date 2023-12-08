@@ -45,6 +45,9 @@ function UserPage(props) {
       <div className="box-with-link">
         <Link to={`/users/${userId}/items_bought`}>Received Items</Link>
       </div>
+      <div className="box-with-link">
+        <Link to={`/`}>Return To Home</Link>
+      </div>
     </div>
   )
 }

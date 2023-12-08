@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from './Item'
+import Authentication from './authentication/Authentication'
 
 function UserSellingItems({ backendRoot }) {
   const [userItems, setUserItems] = useState([])
@@ -19,11 +20,19 @@ function UserSellingItems({ backendRoot }) {
       .catch((error) => console.error(error))
   }, [userId, backendRoot])
 
+    
+  let newtitle = ''
+  if (Authentication.getSessionCredentials().userId === user._id){
+     newtitle= `Items You are Giving Away`
+  }else{
+     newtitle= `Items ${user.username} Are Giving Away`
+  }
+
   return (
     <Item
       itemData={userItems}
       showSearchBar={false}
-      title={`Items ${user.username}'Are Giving Away`}
+      title = {newtitle}
     />
   )
 }
