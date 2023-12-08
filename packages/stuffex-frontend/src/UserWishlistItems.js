@@ -13,26 +13,21 @@ function UserWishlist({ backendRoot }) {
       .then((res) => res.json())
       .then((data) => setWishlistItems(data))
       .catch((error) => console.error(error))
-      fetch(`${backendRoot}/users/${userId}`)
+    fetch(`${backendRoot}/users/${userId}`)
       .then((res) => res.json())
       .then((data) => setUser(data))
       .catch((error) => console.error(error))
   }, [userId, backendRoot])
 
-
   let newtitle = ''
-  if (Authentication.getSessionCredentials().userId === user._id){
-     newtitle= `Items You Have Wishlisted`
-  }else{
-     newtitle= `Items ${user.username} Have Wishlisted`
+  if (Authentication.getSessionCredentials().userId === user._id) {
+    newtitle = `Items You Have Wishlisted`
+  } else {
+    newtitle = `Items ${user.username} Have Wishlisted`
   }
 
   return (
-    <Item
-      itemData={wishlistItems}
-      showSearchBar={false}
-      title= {newtitle}
-    />
+    <Item itemData={wishlistItems} showSearchBar={false} title={newtitle} />
   )
 }
 
