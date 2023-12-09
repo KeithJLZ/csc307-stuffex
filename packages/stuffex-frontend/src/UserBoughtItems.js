@@ -14,11 +14,7 @@ function UserBoughtItems({ backendRoot }) {
   }, [userId, backendRoot])
 
   return (
-    <Item
-      itemData={boughtItems}
-      showSearchBar={false}
-      title="Received Items"
-    />
+    <Item itemData={boughtItems} showSearchBar={false} title="Received Items" />
   )
 }
 

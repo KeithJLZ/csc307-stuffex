@@ -14,11 +14,7 @@ function UserWishlist({ backendRoot }) {
   }, [userId, backendRoot])
 
   return (
-    <Item
-      itemData={wishlistItems}
-      showSearchBar={false}
-      title="Wishlist"
-    />
+    <Item itemData={wishlistItems} showSearchBar={false} title="Wishlist" />
   )
 }
 
